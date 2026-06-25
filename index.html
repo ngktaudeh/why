@@ -260,7 +260,85 @@
   <!-- ============================================ -->
   <style amp-custom>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
+    /* ============================================ */
+    /*    PARTICLE ANIMATIONS (FLOATING GOLD)        */
+    /* ============================================ */
+    @keyframes floatUp1 {
+      0%, 100% { transform: translateY(0px) scale(1); opacity: 0.3; }
+      50% { transform: translateY(-40px) scale(1.3); opacity: 0.7; }
+    }
+    @keyframes floatUp2 {
+      0%, 100% { transform: translateY(0px) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-55px) scale(1.1); opacity: 0.6; }
+    }
+    @keyframes floatUp3 {
+      0%, 100% { transform: translateY(0px) scale(1.2); opacity: 0.4; }
+      50% { transform: translateY(-30px) scale(0.9); opacity: 0.8; }
+    }
+    @keyframes floatUp4 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.25; }
+      50% { transform: translateY(-45px) rotate(20deg); opacity: 0.65; }
+    }
+    @keyframes floatUp5 {
+      0%, 100% { transform: translateY(0px) scale(0.7); opacity: 0.35; }
+      50% { transform: translateY(-35px) scale(1.4); opacity: 0.55; }
+    }
+    @keyframes floatUp6 {
+      0%, 100% { transform: translateY(0px) scale(1.1); opacity: 0.3; }
+      50% { transform: translateY(-50px) scale(0.8); opacity: 0.7; }
+    }
+
+    .particle {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFD700, rgba(255,215,0,0));
+      z-index: 1;
+      pointer-events: none;
+    }
+    .particle:nth-child(1) { animation: floatUp1 6s ease-in-out infinite; }
+    .particle:nth-child(2) { animation: floatUp2 7s ease-in-out infinite 0.5s; }
+    .particle:nth-child(3) { animation: floatUp3 5.5s ease-in-out infinite 1s; }
+    .particle:nth-child(4) { animation: floatUp4 8s ease-in-out infinite 1.5s; }
+    .particle:nth-child(5) { animation: floatUp5 6.5s ease-in-out infinite 2s; }
+    .particle:nth-child(6) { animation: floatUp6 7.5s ease-in-out infinite 0.8s; }
+    .particle:nth-child(7) { animation: floatUp1 5s ease-in-out infinite 3s; }
+    .particle:nth-child(8) { animation: floatUp3 6s ease-in-out infinite 3.5s; }
+
+    /* ============================================ */
+    /*    GLOW PULSE                                 */
+    /* ============================================ */
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 25px rgba(255,215,0,0.15), 0 0 50px rgba(255,215,0,0.05); }
+      50% { box-shadow: 0 0 35px rgba(255,215,0,0.3), 0 0 70px rgba(255,215,0,0.12); }
+    }
+
+    /* ============================================ */
+    /*    URGENCY BLINK (SUBTLE FADE)                */
+    /* ============================================ */
+    @keyframes urgencyFade {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    /* ============================================ */
+    /*    CTA SHINE EFFECT                           */
+    /* ============================================ */
+    @keyframes ctaShine {
+      0% { left: -100%; }
+      100% { left: 200%; }
+    }
+
+    /* ============================================ */
+    /*    BG SPIN                                   */
+    /* ============================================ */
+    @keyframes spinRain {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #000000;
@@ -284,19 +362,14 @@
       background-repeat: repeat;
       animation: spinRain 20s linear infinite;
       z-index: 0;
-      opacity: 0.4;
+      opacity: 0.35;
     }
 
     .overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%);
+      background: radial-gradient(ellipse at 50% 30%, rgba(15,10,0,0.45) 0%, rgba(0,0,0,0.7) 40%, #000000 100%);
       z-index: 1;
-    }
-
-    @keyframes spinRain {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
 
     .container {
@@ -308,31 +381,62 @@
     }
 
     .card {
-      background: rgba(10, 10, 10, 0.85); 
+      background: rgba(10, 10, 10, 0.85);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       border-radius: 24px;
       padding: 30px 20px;
-      border: 2px solid rgba(255, 215, 0, 0.3); 
+      border: 2px solid rgba(255, 215, 0, 0.3);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0, 0, 0, 0.5);
       margin-bottom: 20px;
+      animation: glowPulse 3s ease-in-out infinite;
     }
 
+    /* ============================================ */
+    /*    HEADER + LOGO AREA                         */
+    /* ============================================ */
     header {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       margin-bottom: 25px;
     }
 
+    .badge-top {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      color: #FFD700;
+      background: rgba(255, 215, 0, 0.08);
+      border: 1.5px solid rgba(255, 215, 0, 0.5);
+      border-radius: 50px;
+      padding: 5px 16px;
+      letter-spacing: 0.5px;
+      text-align: center;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
     .logo {
-      filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 40px rgba(255, 215, 0, 0.3));
       transition: transform 0.3s ease;
     }
     .logo:hover { transform: scale(1.05); }
 
+    .decorative-line {
+      width: 80%;
+      height: 2px;
+      margin: 15px auto 0;
+      background: linear-gradient(to right, transparent, #FFD700, rgba(255,215,0,0.4), #FFD700, transparent);
+      border-radius: 2px;
+    }
+
+    /* ============================================ */
+    /*    TITLE + URGENCY                            */
+    /* ============================================ */
     .title-wrap {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .title-wrap h1 {
@@ -343,51 +447,237 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      margin-bottom: 10px;
+    }
+
+    .urgency-text {
+      font-size: 11px;
+      font-weight: 700;
+      color: #ff4444;
+      text-align: center;
+      margin-bottom: 15px;
+      animation: urgencyFade 1.8s ease-in-out infinite;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 10px rgba(255, 68, 68, 0.4);
+    }
+
+    /* ============================================ */
+    /*    CTA BUTTON (PREMIUM 3D)                    */
+    /* ============================================ */
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 6px 0 #b8860b, 0 8px 25px rgba(255, 215, 0, 0.4); }
+      50% { box-shadow: 0 6px 0 #b8860b, 0 8px 40px rgba(255, 215, 0, 0.7), 0 0 70px rgba(255, 215, 0, 0.25); }
     }
 
     .btn {
       display: block;
       width: 100%;
-      padding: 16px;
       border-radius: 50px;
       text-decoration: none;
       text-align: center;
       font-weight: 800;
-      font-size: 15px;
       margin-bottom: 25px;
       transition: all 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #FFD700 0%, #FFC107 50%, #FFD700 100%);
+      background: linear-gradient(180deg, #FFD700 0%, #FFC107 30%, #e6a800 70%, #cc9200 100%);
       color: #000000;
-      box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+      border: none;
+      padding: 18px;
+      font-size: 16px;
+      box-shadow: 0 6px 0 #b8860b, 0 8px 25px rgba(255, 215, 0, 0.4);
     }
 
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: skewX(-25deg);
+      animation: ctaShine 3s ease-in-out infinite;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #b8860b, 0 10px 30px rgba(255, 215, 0, 0.6);
+    }
+
+    .btn-pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ============================================ */
+    /*    HERO IMAGE                                */
+    /* ============================================ */
     .hero {
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3), 0 10px 20px rgba(0,0,0,0.5); 
-      border: 2px solid rgba(255, 255, 255, 0.15); 
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3), 0 10px 20px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255, 255, 255, 0.15);
       background: #000;
     }
 
     /* ============================================ */
+    /*    STATS SECTION (PREMIUM)                    */
+    /* ============================================ */
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 25px 0;
+    }
+
+    .stat-card {
+      background: rgba(10, 10, 10, 0.8);
+      border-radius: 14px;
+      padding: 16px 8px 14px;
+      text-align: center;
+      position: relative;
+      border: 1px solid transparent;
+      background-clip: padding-box;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      padding: 1px;
+      background: linear-gradient(180deg, rgba(255,215,0,0.5), rgba(255,215,0,0.05));
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .stat-icon {
+      font-size: 18px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .stat-number {
+      font-size: 26px;
+      font-weight: 900;
+      color: #FFD700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 8px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      line-height: 1.3;
+    }
+
+    /* ============================================ */
+    /*    KENAPA GRID (3 COL, CIRCLE ICONS)          */
+    /* ============================================ */
+    .kenapa-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .kenapa-item {
+      background: rgba(255, 215, 0, 0.03);
+      border: 1px solid rgba(255, 215, 0, 0.12);
+      border-radius: 14px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+
+    .kenapa-icon-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 215, 0, 0.1);
+      border: 1.5px solid rgba(255, 215, 0, 0.35);
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .kenapa-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #FFD700;
+      margin-bottom: 2px;
+    }
+
+    .kenapa-desc {
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.3;
+    }
+
+    /* ============================================ */
+    /*    DIVIDER (DOUBLE LINE)                      */
+    /* ============================================ */
+    .divider {
+      border: none;
+      margin: 28px 0;
+      height: 2px;
+      background:
+        linear-gradient(to right, transparent, rgba(255,215,0,0.25), transparent),
+        linear-gradient(to bottom, transparent, rgba(255,255,255,0.05), transparent);
+    }
+
+    /* ============================================ */
+    /*    SECTION HEADER WITH DIAMONDS               */
+    /* ============================================ */
+    .section-header {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .section-header h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #FFD700;
+      margin-bottom: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-header h3::before,
+    .section-header h3::after {
+      content: '⬥';
+      font-size: 6px;
+      color: #FFD700;
+      opacity: 0.7;
+    }
+
+    .section-header p {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 0;
+    }
+
+    .section-header-mt {
+      margin-top: 25px;
+    }
+
+    /* ============================================ */
     /*    KONTEN SEO VISIBLE (WHITE-HAT)             */
-    /*    Bisa dibaca user & Googlebot               */
     /* ============================================ */
     .seo-section {
-      margin-top: 30px;
-      padding-top: 25px;
-      border-top: 1px solid rgba(255, 215, 0, 0.2);
+      margin-top: 20px;
+      padding-top: 20px;
     }
 
     .seo-section h2 {
@@ -428,11 +718,11 @@
     }
 
     .seo-section ul li::before {
-      content: '✦';
+      content: '★';
       position: absolute;
       left: 0;
       color: #FFD700;
-      font-size: 10px;
+      font-size: 8px;
     }
 
     .faq-item {
@@ -450,176 +740,28 @@
       margin-bottom: 0;
     }
 
-    .trust-badges {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 215, 0, 0.2);
-    }
-
-    .badge {
-      font-size: 11px;
-      color: #FFD700;
-      padding: 8px 16px;
-      border: 1px solid rgba(255, 215, 0, 0.35);
-      border-radius: 50px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      background: rgba(255, 215, 0, 0.08);
-    }
-
     /* ============================================ */
-    /*    STATS COUNTER (SOCIAL PROOF)               */
-    /* ============================================ */
-    .stats-section {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin: 25px 0;
-    }
-
-    .stat-card {
-      background: rgba(255, 215, 0, 0.06);
-      border: 1px solid rgba(255, 215, 0, 0.2);
-      border-radius: 14px;
-      padding: 14px 8px;
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 22px;
-      font-weight: 800;
-      color: #FFD700;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 9px;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.6);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      line-height: 1.3;
-    }
-
-    /* ============================================ */
-    /*    KENAPA SECTION (GRID ICON)                 */
-    /* ============================================ */
-    .kenapa-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin: 20px 0;
-    }
-
-    .kenapa-item {
-      background: rgba(255, 215, 0, 0.04);
-      border: 1px solid rgba(255, 215, 0, 0.15);
-      border-radius: 14px;
-      padding: 16px 12px;
-      text-align: center;
-    }
-
-    .kenapa-icon {
-      font-size: 28px;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .kenapa-title {
-      font-size: 12px;
-      font-weight: 700;
-      color: #FFD700;
-      margin-bottom: 4px;
-    }
-
-    .kenapa-desc {
-      font-size: 10px;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.4;
-    }
-
-    /* ============================================ */
-    /*    PEMISAH SECTION                            */
-    /* ============================================ */
-    .divider {
-      border: none;
-      border-top: 1px solid rgba(255, 215, 0, 0.15);
-      margin: 25px 0;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .section-header h3 {
-      font-size: 16px;
-      font-weight: 800;
-      color: #FFD700;
-      margin-bottom: 4px;
-    }
-
-    .section-header p {
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 0;
-    }
-
-    .section-header-mt {
-      margin-top: 25px;
-    }
-
-    /* ============================================ */
-    /*    CTA PULSE ANIMATION                        */
-    /* ============================================ */
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4); }
-      50% { box-shadow: 0 5px 35px rgba(255, 215, 0, 0.7), 0 0 60px rgba(255, 215, 0, 0.2); }
-    }
-
-    .btn-pulse {
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    /* ============================================ */
-    /*    CTA BOTTOM STICKY (MOBILE)                 */
-    /* ============================================ */
-    .cta-bottom-wrap {
-      margin-top: 25px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 215, 0, 0.2);
-    }
-
-    .cta-bottom-wrap .btn {
-      margin-bottom: 0;
-      font-size: 16px;
-      padding: 18px;
-    }
-
-    /* ============================================ */
-    /*    CARD CONTENT (SEPARATE VISUAL BLOCKS)      */
+    /*    INFO CARDS (BORDER-LEFT GOLD)              */
     /* ============================================ */
     .info-card {
-      background: rgba(255, 215, 0, 0.03);
-      border: 1px solid rgba(255, 215, 0, 0.12);
-      border-radius: 16px;
+      background: rgba(255, 215, 0, 0.02);
+      border: 1px solid rgba(255, 215, 0, 0.08);
+      border-left: 3px solid #FFD700;
+      border-radius: 0 14px 14px 0;
       padding: 16px;
       margin-bottom: 16px;
     }
 
     .info-card h3 {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       color: #FFD700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 8px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid rgba(255, 215, 0, 0.2);
     }
 
     .info-card .card-icon {
@@ -656,11 +798,18 @@
       padding-left: 0;
     }
 
+    .info-card ul li {
+      padding-left: 18px;
+      position: relative;
+    }
+
     .info-card ul li::before {
-      content: '✦';
+      content: '★';
       color: #FFD700;
       font-size: 8px;
-      margin-right: 8px;
+      position: absolute;
+      left: 0;
+      top: 3px;
     }
 
     .info-card a {
@@ -673,9 +822,116 @@
       text-decoration: underline;
     }
 
+    /* ============================================ */
+    /*    PAYMENT METHODS (PILLS)                    */
+    /* ============================================ */
+    .payment-section {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,215,0,0.15);
+    }
+
+    .payment-section .payment-title {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFD700;
+      margin-bottom: 12px;
+    }
+
+    .payment-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .payment-pill {
+      font-size: 10px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      background: rgba(30,30,30,0.9);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 6px 14px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ============================================ */
+    /*    TRUST BADGES (CONTAINER + GRADIENT)        */
+    /* ============================================ */
+    .trust-container {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,215,0,0.15);
+    }
+
+    .trust-title {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: #FFD700;
+      margin-bottom: 14px;
+    }
+
+    .trust-badges {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(255,215,0,0.02));
+      border: 1px solid rgba(255,215,0,0.15);
+      border-radius: 16px;
+      padding: 16px 12px;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #FFD700;
+      padding: 9px 18px;
+      border: 1.5px solid rgba(255, 215, 0, 0.4);
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+      background: rgba(255, 215, 0, 0.08);
+    }
+
+    /* ============================================ */
+    /*    CTA BOTTOM (LARGER)                        */
+    /* ============================================ */
+    .cta-bottom-wrap {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 215, 0, 0.2);
+      text-align: center;
+    }
+
+    .cta-bottom-wrap .cta-urgent {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFD700;
+      margin-bottom: 12px;
+      animation: urgencyFade 1.8s ease-in-out infinite;
+    }
+
+    .cta-bottom-wrap .btn {
+      margin-bottom: 8px;
+      font-size: 17px;
+      padding: 20px;
+    }
+
+    .cta-bottom-wrap .cta-sub {
+      font-size: 10px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0;
+    }
+
+    /* ============================================ */
+    /*    COPYRIGHT                                  */
+    /* ============================================ */
     .copyright-footer {
       text-align: center;
-      margin-top: 15px;
+      margin-top: 16px;
       font-size: 10px;
       color: rgba(255, 255, 255, 0.3);
     }
@@ -683,6 +939,16 @@
 </head>
 
 <body>
+  <!-- Floating Gold Particles -->
+  <div class="particle" style="top:8%;left:10%;width:5px;height:5px;"></div>
+  <div class="particle" style="top:15%;left:85%;width:3px;height:3px;"></div>
+  <div class="particle" style="top:30%;left:5%;width:4px;height:4px;"></div>
+  <div class="particle" style="top:45%;left:92%;width:6px;height:6px;"></div>
+  <div class="particle" style="top:60%;left:8%;width:3px;height:3px;"></div>
+  <div class="particle" style="top:72%;left:88%;width:5px;height:5px;"></div>
+  <div class="particle" style="top:85%;left:12%;width:4px;height:4px;"></div>
+  <div class="particle" style="top:93%;left:80%;width:3px;height:3px;"></div>
+
   <!-- Lapisan Latar Belakang Berputar -->
   <div class="bg-rain"></div>
   
@@ -696,6 +962,7 @@
     <main class="card">
 
       <header>
+        <span class="badge-top">🏆 #1 SITUS TOTO TERPERCAYA 2025</span>
         <amp-img
           class="logo"
           src="https://bannersmb.site/icon/line/logo.png"
@@ -705,15 +972,17 @@
           height="55"
           layout="intrinsic">
         </amp-img>
+        <div class="decorative-line"></div>
       </header>
 
       <div class="title-wrap">
         <h1>LINETOGEL : Daftarkan akun anda sekarang juga untuk mendapakan kemenangan yang sangat besar !!!</h1>
+        <div class="urgency-text">⚠️ PENDAFTARAN TERBATAS — DAFTAR SEBELUM KUOTA PENUH!</div>
       </div>
 
       <!-- CTA ATAS -->
       <a href="https://pagi.linetogel788.com/register" target="_blank" rel="nofollow noreferrer noopener" class="btn btn-primary btn-pulse" title="Daftar LINETOGEL Sekarang">
-        🔥 Daftar Sekarang — Menang Besar!
+        🔥 DAFTAR SEKARANG — RAIH KEMENANGAN BESAR! 🔥
       </a>
 
       <div class="hero">
@@ -732,14 +1001,17 @@
       <!-- ============================================ -->
       <div class="stats-section">
         <div class="stat-card">
+          <span class="stat-icon">🎯</span>
           <div class="stat-number">20+</div>
           <div class="stat-label">Pasaran Toto</div>
         </div>
         <div class="stat-card">
+          <span class="stat-icon">💬</span>
           <div class="stat-number">24/7</div>
           <div class="stat-label">CS Support</div>
         </div>
         <div class="stat-card">
+          <span class="stat-icon">⚡</span>
           <div class="stat-number">2 Menit</div>
           <div class="stat-label">Proses Daftar</div>
         </div>
@@ -755,32 +1027,32 @@
 
       <div class="kenapa-grid">
         <div class="kenapa-item">
-          <span class="kenapa-icon">🎯</span>
+          <span class="kenapa-icon-circle">🎯</span>
           <div class="kenapa-title">Pasaran Lengkap</div>
           <div class="kenapa-desc">20+ pasaran lokal & internasional</div>
         </div>
         <div class="kenapa-item">
-          <span class="kenapa-icon">💰</span>
-          <div class="kenapa-title">Bayaran Tertinggi</div>
+          <span class="kenapa-icon-circle">💰</span>
+          <div class="kenapa-title">Bayaran Tinggi</div>
           <div class="kenapa-desc">Kemenangan dibayar penuh</div>
         </div>
         <div class="kenapa-item">
-          <span class="kenapa-icon">⚡</span>
+          <span class="kenapa-icon-circle">⚡</span>
           <div class="kenapa-title">Transaksi Cepat</div>
           <div class="kenapa-desc">Depo & WD hitungan menit</div>
         </div>
         <div class="kenapa-item">
-          <span class="kenapa-icon">🔒</span>
+          <span class="kenapa-icon-circle">🔒</span>
           <div class="kenapa-title">100% Aman</div>
-          <div class="kenapa-desc">Enkripsi SSL & privasi terjaga</div>
+          <div class="kenapa-desc">Enkripsi SSL & privacy</div>
         </div>
         <div class="kenapa-item">
-          <span class="kenapa-icon">📱</span>
+          <span class="kenapa-icon-circle">📱</span>
           <div class="kenapa-title">Mobile Friendly</div>
           <div class="kenapa-desc">Main dari HP kapan saja</div>
         </div>
         <div class="kenapa-item">
-          <span class="kenapa-icon">🎁</span>
+          <span class="kenapa-icon-circle">🎁</span>
           <div class="kenapa-title">Bonus Melimpah</div>
           <div class="kenapa-desc">New member, cashback, event</div>
         </div>
@@ -894,25 +1166,45 @@
           <p>Tentu! LINETOGEL <strong>mobile-friendly</strong>, lancar di Android & iPhone tanpa aplikasi tambahan.</p>
         </div>
 
+        <!-- Payment Methods -->
+        <div class="payment-section">
+          <div class="payment-title">💳 Metode Pembayaran</div>
+          <div class="payment-grid">
+            <span class="payment-pill">BCA</span>
+            <span class="payment-pill">BNI</span>
+            <span class="payment-pill">BRI</span>
+            <span class="payment-pill">Mandiri</span>
+            <span class="payment-pill">Dana</span>
+            <span class="payment-pill">OVO</span>
+            <span class="payment-pill">GoPay</span>
+            <span class="payment-pill">QRIS</span>
+          </div>
+        </div>
+
+        <!-- Trust Badges Container -->
+        <div class="trust-container">
+          <div class="trust-title">🔒 DIPERCAYA & TERJAMIN</div>
+          <div class="trust-badges">
+            <span class="badge">🔒 Transaksi Aman</span>
+            <span class="badge">⚡ Bayaran Tinggi</span>
+            <span class="badge">🎯 Pasaran Lengkap</span>
+            <span class="badge">📱 Mobile Friendly</span>
+            <span class="badge">🏆 Terpercaya</span>
+            <span class="badge">💰 Deposit Murah</span>
+          </div>
+        </div>
+
+        <!-- CTA BAWAH (LARGER) -->
+        <div class="cta-bottom-wrap">
+          <div class="cta-urgent">⚡ Jangan Tunda Lagi — Kemenangan Besar Menunggumu!</div>
+          <a href="https://pagi.linetogel788.com/register" target="_blank" rel="nofollow noreferrer noopener" class="btn btn-primary btn-pulse" title="Daftar LINETOGEL Sekarang">
+            🔥 DAFTAR SEKARANG — RAIH KEMENANGAN BESAR! 🔥
+          </a>
+          <div class="cta-sub">✅ Pendaftaran Gratis & Mudah</div>
+        </div>
+
         <div class="copyright-footer">
           &copy; 2025 LINETOGEL. All rights reserved.
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="trust-badges">
-          <span class="badge">🔒 Transaksi Aman</span>
-          <span class="badge">⚡ Bayaran Tinggi</span>
-          <span class="badge">🎯 Pasaran Lengkap</span>
-          <span class="badge">📱 Mobile Friendly</span>
-          <span class="badge">🏆 Terpercaya</span>
-          <span class="badge">💰 Deposit Murah</span>
-        </div>
-
-        <!-- CTA BAWAH -->
-        <div class="cta-bottom-wrap">
-          <a href="https://pagi.linetogel788.com/register" target="_blank" rel="nofollow noreferrer noopener" class="btn btn-primary btn-pulse" title="Daftar LINETOGEL Sekarang">
-            🔥 Daftar Sekarang & Menangkan Hadiah Besar!
-          </a>
         </div>
 
       </section>
