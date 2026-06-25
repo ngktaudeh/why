@@ -420,22 +420,206 @@
 
     .trust-badges {
       display: flex;
-      gap: 15px;
+      gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
       margin-top: 20px;
       padding-top: 20px;
-      border-top: 1px solid rgba(255, 215, 0, 0.15);
+      border-top: 1px solid rgba(255, 215, 0, 0.2);
     }
 
     .badge {
-      font-size: 10px;
-      color: rgba(255, 215, 0, 0.6);
-      padding: 6px 14px;
-      border: 1px solid rgba(255, 215, 0, 0.25);
+      font-size: 11px;
+      color: #FFD700;
+      padding: 8px 16px;
+      border: 1px solid rgba(255, 215, 0, 0.35);
       border-radius: 50px;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.5px;
+      background: rgba(255, 215, 0, 0.08);
+    }
+
+    /* ============================================ */
+    /*    STATS COUNTER (SOCIAL PROOF)               */
+    /* ============================================ */
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 25px 0;
+    }
+
+    .stat-card {
+      background: rgba(255, 215, 0, 0.06);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 14px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFD700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 9px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+
+    /* ============================================ */
+    /*    KENAPA SECTION (GRID ICON)                 */
+    /* ============================================ */
+    .kenapa-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .kenapa-item {
+      background: rgba(255, 215, 0, 0.04);
+      border: 1px solid rgba(255, 215, 0, 0.15);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+
+    .kenapa-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .kenapa-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #FFD700;
+      margin-bottom: 4px;
+    }
+
+    .kenapa-desc {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.4;
+    }
+
+    /* ============================================ */
+    /*    PEMISAH SECTION                            */
+    /* ============================================ */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255, 215, 0, 0.15);
+      margin: 25px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .section-header h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #FFD700;
+      margin-bottom: 4px;
+    }
+
+    .section-header p {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 0;
+    }
+
+    /* ============================================ */
+    /*    CTA PULSE ANIMATION                        */
+    /* ============================================ */
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4); }
+      50% { box-shadow: 0 5px 35px rgba(255, 215, 0, 0.7), 0 0 60px rgba(255, 215, 0, 0.2); }
+    }
+
+    .btn-pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ============================================ */
+    /*    CTA BOTTOM STICKY (MOBILE)                 */
+    /* ============================================ */
+    .cta-bottom-wrap {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .cta-bottom-wrap .btn {
+      margin-bottom: 0;
+      font-size: 16px;
+      padding: 18px;
+    }
+
+    /* ============================================ */
+    /*    CARD CONTENT (SEPARATE VISUAL BLOCKS)      */
+    /* ============================================ */
+    .info-card {
+      background: rgba(255, 215, 0, 0.03);
+      border: 1px solid rgba(255, 215, 0, 0.12);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .info-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFD700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-card .card-icon {
+      font-size: 18px;
+    }
+
+    .info-card p,
+    .info-card ul,
+    .info-card ol {
+      margin-bottom: 0;
+      font-size: 11px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .info-card ul,
+    .info-card ol {
+      padding-left: 16px;
+    }
+
+    .info-card ul li,
+    .info-card ol li {
+      padding: 3px 0;
+      font-size: 11px;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-card ul li::before {
+      content: '✦';
+      color: #FFD700;
+      font-size: 8px;
+      margin-right: 8px;
     }
   </style>
 </head>
@@ -469,8 +653,9 @@
         <h1>LINETOGEL : Daftarkan akun anda sekarang juga untuk mendapakan kemenangan yang sangat besar !!!</h1>
       </div>
 
-      <a href="https://pagi.linetogel788.com/register" target="_blank" rel="nofollow noreferrer noopener" class="btn btn-primary" title="Daftar LINETOGEL Sekarang">
-        Mainkan Sekarang juga
+      <!-- CTA ATAS -->
+      <a href="https://pagi.linetogel788.com/register" target="_blank" rel="nofollow noreferrer noopener" class="btn btn-primary btn-pulse" title="Daftar LINETOGEL Sekarang">
+        🔥 Daftar Sekarang — Menang Besar!
       </a>
 
       <div class="hero">
@@ -485,86 +670,161 @@
       </div>
 
       <!-- ============================================ -->
-      <!-- KONTEN SEO VISIBLE (White-Hat, Aman Google)  -->
+      <!-- STATS SECTION (SOCIAL PROOF)                  -->
+      <!-- ============================================ -->
+      <div class="stats-section">
+        <div class="stat-card">
+          <div class="stat-number">50rb+</div>
+          <div class="stat-label">Member Aktif</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Pasaran Toto</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">CS Support</div>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- KENAPA PILIH LINETOGEL (GRID)                 -->
+      <!-- ============================================ -->
+      <div class="section-header">
+        <h3>Mengapa LINETOGEL?</h3>
+        <p>Pilihan terbaik untuk kemenangan maksimal</p>
+      </div>
+
+      <div class="kenapa-grid">
+        <div class="kenapa-item">
+          <span class="kenapa-icon">🎯</span>
+          <div class="kenapa-title">Pasaran Lengkap</div>
+          <div class="kenapa-desc">20+ pasaran lokal & internasional</div>
+        </div>
+        <div class="kenapa-item">
+          <span class="kenapa-icon">💰</span>
+          <div class="kenapa-title">Bayaran Tertinggi</div>
+          <div class="kenapa-desc">Kemenangan dibayar penuh</div>
+        </div>
+        <div class="kenapa-item">
+          <span class="kenapa-icon">⚡</span>
+          <div class="kenapa-title">Transaksi Cepat</div>
+          <div class="kenapa-desc">Depo & WD hitungan menit</div>
+        </div>
+        <div class="kenapa-item">
+          <span class="kenapa-icon">🔒</span>
+          <div class="kenapa-title">100% Aman</div>
+          <div class="kenapa-desc">Enkripsi SSL & privasi terjaga</div>
+        </div>
+        <div class="kenapa-item">
+          <span class="kenapa-icon">📱</span>
+          <div class="kenapa-title">Mobile Friendly</div>
+          <div class="kenapa-desc">Main dari HP kapan saja</div>
+        </div>
+        <div class="kenapa-item">
+          <span class="kenapa-icon">🎁</span>
+          <div class="kenapa-title">Bonus Melimpah</div>
+          <div class="kenapa-desc">New member, cashback, event</div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- ============================================ -->
+      <!-- KONTEN SEO VISIBLE (White-Hat) — CARD BASED  -->
       <!-- ============================================ -->
       <section class="seo-section" aria-labelledby="tentang-linetogel">
 
-        <h2 id="tentang-linetogel">LINETOGEL — Situs Toto Online Terpercaya dengan Pasaran Lengkap & Bayaran Tertinggi</h2>
-        <p><strong>LINETOGEL</strong> adalah <strong>situs toto online terpercaya</strong> nomor satu di Indonesia yang menyediakan <strong>pasaran toto paling lengkap</strong> dengan <strong>bayaran kemenangan tertinggi</strong>. Didukung oleh sistem keamanan terdepan dan tim customer service profesional 24 jam, LINETOGEL memastikan setiap pemain mendapatkan pengalaman bermain toto online yang aman, cepat, dan menguntungkan. Dengan ribuan member aktif setiap harinya, LINETOGEL telah membuktikan diri sebagai pilihan utama para pecinta toto di Indonesia.</p>
+        <div class="section-header">
+          <h3 id="tentang-linetogel">Tentang LINETOGEL</h3>
+          <p>Situs Toto Online Terpercaya #1 di Indonesia</p>
+        </div>
 
-        <h3>Mengapa Memilih LINETOGEL?</h3>
-        <p>Ada banyak <strong>situs toto</strong> di internet, tapi hanya LINETOGEL yang menawarkan kombinasi <strong>pasaran terlengkap</strong>, <strong>bayaran tertinggi</strong>, dan <strong>proses transaksi tercepat</strong>. Kami memahami bahwa pemain menginginkan kemenangan besar dengan proses yang mudah — dan itulah yang kami berikan setiap hari.</p>
+        <div class="info-card">
+          <h3><span class="card-icon">🏆</span> LINETOGEL — Situs Toto Terpercaya</h3>
+          <p><strong>LINETOGEL</strong> adalah <strong>situs toto online terpercaya</strong> nomor satu di Indonesia yang menyediakan <strong>pasaran toto paling lengkap</strong> dengan <strong>bayaran kemenangan tertinggi</strong>. Didukung oleh sistem keamanan terdepan dan tim customer service profesional 24 jam, LINETOGEL memastikan setiap pemain mendapatkan pengalaman bermain toto online yang aman, cepat, dan menguntungkan. Dengan ribuan member aktif setiap harinya, LINETOGEL telah membuktikan diri sebagai pilihan utama para pecinta toto di Indonesia.</p>
+        </div>
 
-        <h3>Keunggulan LINETOGEL Dibanding Situs Toto Lain</h3>
-        <ul>
-          <li><strong>Pasaran toto terlengkap</strong> se-Indonesia — mencakup semua pasaran populer lokal dan internasional</li>
-          <li><strong>Bayaran kemenangan tertinggi</strong> di kelasnya — dapatkan hasil maksimal dari setiap kemenangan Anda</li>
-          <li><strong>Proses deposit dan withdraw super cepat</strong> — transaksi diproses dalam hitungan menit, bukan jam</li>
-          <li><strong>Layanan customer service 24 jam</strong> non-stop — tim support siap membantu kapan saja</li>
-          <li><strong>Sistem keamanan dan privasi terjamin</strong> — data pribadi Anda dilindungi dengan enkripsi terbaru</li>
-          <li><strong>Akses mudah melalui desktop dan mobile</strong> — mainkan kapan saja, di mana saja</li>
-          <li><strong>Minimal deposit terjangkau</strong> — mulai bermain dengan modal kecil, raih kemenangan besar</li>
-          <li><strong>Bonus dan promosi menarik</strong> — dapatkan bonus new member, cashback, dan event spesial</li>
-        </ul>
+        <div class="info-card">
+          <h3><span class="card-icon">✅</span> Keunggulan LINETOGEL</h3>
+          <ul>
+            <li><strong>Pasaran toto terlengkap</strong> — mencakup semua pasaran populer lokal dan internasional</li>
+            <li><strong>Bayaran kemenangan tertinggi</strong> — dapatkan hasil maksimal dari setiap kemenangan</li>
+            <li><strong>Proses deposit & withdraw super cepat</strong> — transaksi dalam hitungan menit</li>
+            <li><strong>Customer service 24 jam</strong> — tim support profesional siap membantu</li>
+            <li><strong>Sistem keamanan terjamin</strong> — enkripsi SSL & payment gateway resmi</li>
+            <li><strong>Akses desktop & mobile</strong> — mainkan kapan saja, di mana saja</li>
+            <li><strong>Minimal deposit terjangkau</strong> — mulai dengan modal kecil</li>
+            <li><strong>Bonus & promosi menarik</strong> — new member, cashback, event spesial</li>
+          </ul>
+        </div>
 
-        <h3>Cara Daftar LINETOGEL — Langkah Mudah Mulai Bermain Toto</h3>
-        <p>Untuk <strong>daftar LINETOGEL</strong> sangat mudah dan cepat. Ikuti langkah-langkah berikut:</p>
-        <ol style="list-style:decimal;padding-left:20px;margin-bottom:15px;font-size:12px;color:rgba(255,255,255,0.7);line-height:1.7;">
-          <li>Klik tombol <strong>"Mainkan Sekarang juga"</strong> di bagian atas halaman ini</li>
-          <li>Isi formulir pendaftaran dengan data diri yang valid dan lengkap</li>
-          <li>Verifikasi akun Anda melalui konfirmasi yang dikirimkan</li>
-          <li>Lakukan deposit pertama dengan nominal minimal</li>
-          <li>Pilih pasaran toto favorit Anda dan mulai bermain</li>
-        </ol>
-        <p>Proses pendaftaran di LINETOGEL hanya membutuhkan waktu kurang dari <strong>2 menit</strong>. Setelah terdaftar, Anda langsung bisa menikmati semua permainan toto yang tersedia dan berkesempatan meraih kemenangan besar setiap harinya.</p>
+        <div class="info-card">
+          <h3><span class="card-icon">📝</span> Cara Daftar LINETOGEL</h3>
+          <ol style="margin-bottom:8px;">
+            <li>Klik tombol <strong>"Daftar Sekarang"</strong> di halaman ini</li>
+            <li>Isi formulir pendaftaran dengan data valid</li>
+            <li>Verifikasi akun Anda</li>
+            <li>Lakukan deposit pertama</li>
+            <li>Pilih pasaran favorit & mulai bermain</li>
+          </ol>
+          <p style="margin-top:8px;">Proses pendaftaran hanya <strong>2 menit</strong>. Langsung bisa menikmati semua permainan toto dan meraih kemenangan besar!</p>
+        </div>
 
-        <h3>Pasaran Toto LINETOGEL — Pilihan Terlengkap untuk Kemenangan Maksimal</h3>
-        <p>LINETOGEL menyediakan <strong>pasaran toto paling lengkap</strong> yang mencakup pasaran-pasaran populer dari berbagai wilayah. Mulai dari pasaran lokal favorit hingga pasaran internasional ternama, semuanya tersedia dalam satu platform. Semua pasaran di-<strong>update secara real-time</strong> sehingga Anda selalu mendapatkan hasil terbaru dan paling akurat.</p>
-        <p>Pilihan pasaran yang beragam memberikan <strong>peluang lebih besar</strong> bagi setiap pemain untuk meraih kemenangan maksimal. Dengan analisis data dan statistik yang tersedia, Anda bisa membuat strategi terbaik untuk setiap permainan toto yang diikuti.</p>
+        <div class="info-card">
+          <h3><span class="card-icon">🌍</span> Pasaran Toto Terlengkap</h3>
+          <p>LINETOGEL menyediakan <strong>pasaran toto paling lengkap</strong> — dari pasaran lokal favorit hingga internasional ternama, semua tersedia dalam satu platform. Hasil di-<strong>update real-time</strong>, selalu akurat. Pilihan pasaran beragam memberi <strong>peluang lebih besar</strong> untuk meraih kemenangan maksimal.</p>
+        </div>
 
-        <h3>Tips Meraih Kemenangan di LINETOGEL</h3>
-        <ul>
-          <li>Pelajari pola dan statistik dari setiap pasaran toto yang tersedia</li>
-          <li>Manfaatkan bonus dan promosi untuk modal tambahan bermain</li>
-          <li>Kelola bankroll dengan bijak — tentukan batas harian</li>
-          <li>Pilih pasaran dengan bayaran tertinggi untuk hasil maksimal</li>
-          <li>Bermain secara konsisten dan sabar — kemenangan besar butuh strategi</li>
-        </ul>
+        <div class="info-card">
+          <h3><span class="card-icon">💡</span> Tips Meraih Kemenangan</h3>
+          <ul>
+            <li>Pelajari pola & statistik setiap pasaran toto</li>
+            <li>Manfaatkan bonus new member & promosi</li>
+            <li>Kelola bankroll — tentukan batas harian</li>
+            <li>Pilih pasaran bayaran tertinggi untuk hasil maksimal</li>
+            <li>Bermain konsisten & sabar — strategi adalah kunci</li>
+          </ul>
+        </div>
 
-        <h3>Keamanan dan Privasi di LINETOGEL</h3>
-        <p>LINETOGEL menggunakan <strong>teknologi enkripsi SSL terbaru</strong> untuk melindungi semua data pribadi dan transaksi member. Sistem keamanan kami diaudit secara berkala untuk memastikan standar tertinggi dalam perlindungan data. Setiap transaksi deposit dan withdraw diproses melalui <strong>payment gateway resmi</strong> yang terpercaya di Indonesia. Privasi Anda adalah prioritas kami — data member tidak akan pernah dibagikan kepada pihak ketiga tanpa izin.</p>
+        <div class="info-card">
+          <h3><span class="card-icon">🛡️</span> Keamanan & Privasi</h3>
+          <p>LINETOGEL menggunakan <strong>teknologi enkripsi SSL terbaru</strong>. Sistem keamanan diaudit berkala. Setiap transaksi diproses melalui <strong>payment gateway resmi</strong>. Data member tidak akan pernah dibagikan ke pihak ketiga.</p>
+        </div>
 
-        <!-- FAQ Visible -->
-        <h3>Pertanyaan Umum Seputar LINETOGEL (FAQ)</h3>
+        <!-- FAQ -->
+        <div class="section-header" style="margin-top:25px;">
+          <h3>Pertanyaan Umum (FAQ)</h3>
+        </div>
 
         <div class="faq-item">
           <h4>Apa itu LINETOGEL?</h4>
-          <p>LINETOGEL adalah <strong>situs toto online terpercaya</strong> dengan pasaran lengkap dan permainan menarik yang telah dipercaya oleh ribuan pemain di Indonesia. Kami menyediakan pengalaman bermain toto yang aman, cepat, dan menguntungkan.</p>
+          <p>LINETOGEL adalah <strong>situs toto online terpercaya</strong> dengan pasaran lengkap yang telah dipercaya ribuan pemain di Indonesia.</p>
         </div>
 
         <div class="faq-item">
           <h4>Bagaimana cara daftar LINETOGEL?</h4>
-          <p>Cara daftar LINETOGEL sangat mudah — kunjungi halaman pendaftaran resmi melalui tombol di atas, isi data diri Anda dengan benar, lakukan deposit pertama, dan Anda langsung bisa bermain semua permainan toto yang tersedia.</p>
+          <p>Kunjungi halaman pendaftaran, isi data diri, lakukan deposit pertama, dan langsung bisa bermain.</p>
         </div>
 
         <div class="faq-item">
-          <h4>Apakah LINETOGEL terpercaya dan aman?</h4>
-          <p>Ya, LINETOGEL merupakan <strong>situs toto terpercaya</strong> yang telah diakui banyak pemain di Indonesia. Kami menggunakan enkripsi SSL, payment gateway resmi, dan sistem keamanan berlapis untuk melindungi setiap transaksi dan data member.</p>
+          <h4>Apakah LINETOGEL terpercaya?</h4>
+          <p>Ya, LINETOGEL menggunakan enkripsi SSL, payment gateway resmi, dan sistem keamanan berlapis.</p>
         </div>
 
         <div class="faq-item">
           <h4>Berapa bayaran kemenangan di LINETOGEL?</h4>
-          <p>LINETOGEL menawarkan <strong>bayaran kemenangan paling tinggi</strong> dibandingkan situs toto lainnya. Setiap kemenangan diproses dengan cepat tanpa potongan biaya tersembunyi.</p>
+          <p>LINETOGEL menawarkan <strong>bayaran tertinggi</strong> — kemenangan diproses cepat tanpa potongan.</p>
         </div>
 
         <div class="faq-item">
-          <h4>Berapa minimal deposit di LINETOGEL?</h4>
-          <p>Minimal deposit di LINETOGEL sangat terjangkau, memungkinkan siapa saja untuk mulai bermain dan meraih kemenangan besar dengan modal kecil.</p>
+          <h4>Berapa minimal deposit?</h4>
+          <p>Minimal deposit sangat terjangkau — mulai bermain dengan modal kecil, raih kemenangan besar.</p>
         </div>
 
         <div class="faq-item">
-          <h4>Apakah LINETOGEL bisa diakses dari HP?</h4>
-          <p>Tentu! LINETOGEL didesain <strong>mobile-friendly</strong> dan bisa diakses dengan lancar dari smartphone Android maupun iPhone tanpa perlu download aplikasi tambahan.</p>
+          <h4>Bisa diakses dari HP?</h4>
+          <p>Tentu! LINETOGEL <strong>mobile-friendly</strong>, lancar di Android & iPhone tanpa aplikasi tambahan.</p>
         </div>
 
         <!-- Trust Badges -->
@@ -575,6 +835,13 @@
           <span class="badge">📱 Mobile Friendly</span>
           <span class="badge">🏆 Terpercaya</span>
           <span class="badge">💰 Deposit Murah</span>
+        </div>
+
+        <!-- CTA BAWAH -->
+        <div class="cta-bottom-wrap">
+          <a href="https://pagi.linetogel788.com/register" target="_blank" rel="nofollow noreferrer noopener" class="btn btn-primary btn-pulse" title="Daftar LINETOGEL Sekarang">
+            🔥 Daftar Sekarang & Menangkan Hadiah Besar!
+          </a>
         </div>
 
       </section>
